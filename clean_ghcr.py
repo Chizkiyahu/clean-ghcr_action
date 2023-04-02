@@ -120,6 +120,8 @@ def delete_pkgs(owner, repo_name, owner_type, package_name, untagged_only,
             package_name=package_name,
             owner_type=owner_type,
         )
+        print("all_packages")
+        [print(p) for p in all_packages]
         tagged_pkgs = {
             pkg: [
                 pkg_ver for pkg_ver in all_packages[pkg]
