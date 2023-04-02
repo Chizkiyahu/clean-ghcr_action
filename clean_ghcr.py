@@ -103,7 +103,7 @@ def get_image_deps(image):
 
 
 def get_manifest(image):
-    cmd = f"docker manifest inspect {image}"
+    cmd = f"docker buildx imagetools inspect {image}" + " --format \"{{json .Manifest}}\""
     res = subprocess.run(cmd, shell=True, capture_output=True)
     if res.returncode != 0:
         print(cmd)
